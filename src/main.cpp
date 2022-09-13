@@ -3,6 +3,7 @@
 #include "Button.h"
 #include "Led.h"
 #include "Listener.h"
+#include "Controller.h"
 
 int main()
 {
@@ -10,8 +11,10 @@ int main()
 
     Button button1(27); // Abstract of Button
     Led led1(25);
-    Listener listener(&button1, &led1);
-    
+    Controller control(&led1);
+    Listener listener(&button1, &control);
+   
+
     while(1)
     {
         // Listner (Event 감시)
